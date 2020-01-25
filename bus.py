@@ -35,9 +35,9 @@ def main():
     now = datetime.datetime.now()
     hour = now.hour
     params["wtp_dt"] = now.strftime("%H-%M"),
+
     # extract the info from website
     page = requests.get(url, params=params)
-    print(page.url)
     soup = bs4.BeautifulSoup(page.content, 'html.parser')
     
     ul = soup.find(attrs={"class": "timetable-line"})
